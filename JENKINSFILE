@@ -1,8 +1,8 @@
 pipeline{
     agent any
     parameters{
-        string(name: 'name', defaultName: 'Santi')
-        choice(name: 'city', choice: ['Delhi','Kolkata','Mumbai'])
+        string(name: 'name', defaultValue: 'Santi')
+        choice(name: 'city', choices: ['Delhi','Kolkata','Mumbai'])
         booleanParam(name: 'married', defaultValue: 'true')
     }
     stages{
