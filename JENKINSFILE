@@ -1,46 +1,17 @@
 pipeline{
     agent any
+    parameters{
+        string(name: 'name', defaultName: 'Santi')
+        choice(name: 'city', choice: ['Delhi','Kolkata','Mumbai'])
+        boolean(name: 'married')
+    }
     stages{
         stage('one'){
             steps{
-                echo 'stage 1'
+                echo "${params.name}"
+                echo "${params.city}"
+                echo "${params.married}"
             }
-        }
-
-        stage('two'){
-            steps{
-                echo 'stage 2'
-            }
-        }
-
-        stage('three'){
-            steps{
-                echo 'stage 3'
-            }
-        }
-
-        stage('four'){
-            steps{
-                echo 'stage 4'
-            }
-        }
-
-        stage('five'){
-            steps{
-                echo 'stage 5'
-            }
-        }
-    }
-    
-    post{
-        always{
-            echo 'pipeline finalizado'
-        }
-        success{
-            echo 'Todo ha ido bien'
-        }
-        failure{
-            echo 'Ha fallado todo'
         }
     }
 }
